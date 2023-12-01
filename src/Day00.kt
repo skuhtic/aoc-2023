@@ -1,5 +1,5 @@
 fun main() {
-    val day = "01"
+    val day = "00"
 
     fun part1(input: List<String>): Int {
         return input.size
