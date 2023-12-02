@@ -10,6 +10,12 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
+        val re =
+            Regex(
+                """([0123456789]|one|two|three|four|five|six|seven|eight|nine).+([0123456789]|one|two|three|four|five|six|seven|eight|nine)""",
+                RegexOption.CANON_EQ
+            )
+
         fun findDigit(part: String): Int? {
             if (part[0].isDigit()) return part[0].digitToInt()
             return when {
@@ -26,6 +32,27 @@ fun main() {
             }
         }
 
+        fun findNoDigit(digit: String): Int {
+            if (digit[0].isDigit()) return digit[0].digitToInt()
+            return when {
+                digit.equals("one") -> 1
+                digit.equals("two") -> 2
+                digit.equals("three") -> 3
+                digit.equals("four") -> 4
+                digit.equals("five") -> 5
+                digit.equals("six") -> 6
+                digit.equals("seven") -> 7
+                digit.equals("eight") -> 8
+                digit.equals("nine") -> 9
+                else -> error("Invalid digit: $digit")
+            }
+        }
+
+        fun findNumber(input: String): Int {
+            val (f, l) = re.matchEntire(input)?.destructured ?: error("No matches in: $input")
+            return findNoDigit(f) * 10 + findNoDigit(l)
+        }
+
         fun findDigit(input: String, backwards: Boolean): Int {
             repeat(input.length) { n ->
                 findDigit(input.drop(if (!backwards) n else input.length - n - 1))?.let {
@@ -36,7 +63,8 @@ fun main() {
         }
 
         return input.fold(0) { a, it ->
-            a + findDigit(it, false) * 10 + findDigit(it, true)
+//            a + findDigit(it, false) * 10 + findDigit(it, true)
+            a + findNumber(it)
         }
     }
 

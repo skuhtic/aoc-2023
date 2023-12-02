@@ -1,18 +1,25 @@
+import kotlin.time.measureTime
+
 fun main() {
     val day = "00"
 
     fun part1(input: List<String>): Int {
-        return input.size
+        return TODO()
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        return TODO()
     }
 
-    val testInput = readInput(day, "sample")
-    check(part1(testInput) == 1)
+    readInput(day, "sample").let { checkSample(part1(it), TODO()) }
+//    readInput(day, "sample_p2").let { checkSample(part2(it), TODO()) }
 
-    val input = readInput(day, "input")
-    part1(input).println()
-    part2(input).println()
+    readInput(day, "input").let {
+        measureTime {
+            part1(it).println()
+            part2(it).println()
+        }.let {
+            println("Done in $it.")
+        }
+    }
 }

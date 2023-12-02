@@ -7,7 +7,7 @@ import kotlin.io.path.readLines
  * Reads lines from the given input txt file.
  */
 fun readInput(day: String, name: String): List<String> {
-    val fileName  = "d$day-$name.txt"
+    val fileName = "d$day-$name.txt"
     println("Reading input file: $fileName")
     return Path("src/inputs/$fileName").readLines()
 }
@@ -35,3 +35,5 @@ fun checkSample(result: Any, expected: Any) {
     }
     println("Check ok: $result")
 }
+
+fun Any.logPrint() = also { println("\n$it\n") }
