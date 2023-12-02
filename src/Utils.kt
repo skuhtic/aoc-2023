@@ -36,4 +36,4 @@ fun checkSample(result: Any, expected: Any) {
     println("Check ok: $result")
 }
 
-fun Any.logPrint() = also { println("\n$it\n") }
+inline fun <reified T> T.logPrint() = this.also { println("\n$it\n") }
