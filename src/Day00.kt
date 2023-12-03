@@ -1,3 +1,6 @@
+import utils.checkSample
+import utils.println
+import utils.readInput
 import kotlin.time.measureTime
 
 fun main() {

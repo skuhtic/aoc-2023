@@ -1,7 +1,10 @@
+package utils
+
 import java.math.BigInteger
 import java.security.MessageDigest
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
+import kotlin.time.measureTime
 
 /**
  * Reads lines from the given input txt file.
@@ -10,6 +13,12 @@ fun readInput(day: String, name: String): List<String> {
     val fileName = "d$day-$name.txt"
     println("Reading input file: $fileName")
     return Path("src/inputs/$fileName").readLines()
+}
+
+fun readInput2(day: String, name: String): List<String> {
+    val fileName = "$name.txt"
+    println("Reading input file: $fileName")
+    return Path("src/day$day/$fileName").readLines()
 }
 
 /**
@@ -37,3 +46,13 @@ fun checkSample(result: Any, expected: Any) {
 }
 
 inline fun <reified T> T.logPrint() = this.also { println("\n$it\n") }
+
+fun measureSolution(block: () -> Unit) {
+    println("Starting solutions")
+    measureTime {
+        block()
+    }.let {
+        println("Solutions done in $it.")
+    }
+
+}
