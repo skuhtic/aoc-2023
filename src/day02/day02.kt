@@ -4,20 +4,20 @@ import utils.*
 
 fun main() {
     val day = "02"
+
     fun part1(games: List<Game>): Int = games.filter { it.isLegit() }.sumOf { it.id }
+
     fun part2(games: List<Game>): Int = games.map { it.possibleWith() }.sumOf { it.power() }
 
-    readInput(day, "sample").map { Game.parse(it) }.let {
+    readInput2(day, "sample").map { Game.parse(it) }.let {
         checkSample(part1(it), 8)
         checkSample(part2(it), 2286)
     }
 
-    readInput(day, "input").map { Game.parse(it) }.let {
+    readInput2(day, "input").map { Game.parse(it) }.let {
         measureSolution {
             part1(it).println()
             part2(it).println()
-        }.let {
-            println("Done in $it.")
         }
     }
 }

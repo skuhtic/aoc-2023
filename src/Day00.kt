@@ -1,28 +1,24 @@
-import utils.checkSample
-import utils.println
-import utils.readInput
-import kotlin.time.measureTime
+import utils.*
 
 fun main() {
     val day = "00"
+    require(day.toInt() in 1..25)
 
-    fun part1(input: List<String>): Int {
-        return TODO()
+    fun part1(input: List<String>): Int = TODO()
+
+    fun part2(input: List<String>): Int = TODO()
+
+    fun List<String>.mapInput() = this
+
+    readInput(day, "sample").mapInput().let {
+        checkSample(part1(it), TODO())
+        checkSample(part2(it), TODO())
     }
 
-    fun part2(input: List<String>): Int {
-        return TODO()
-    }
-
-    readInput(day, "sample").let { checkSample(part1(it), TODO()) }
-//    readInput(day, "sample_p2").let { checkSample(part2(it), TODO()) }
-
-    readInput(day, "input").let {
-        measureTime {
+    readInput(day, "input").mapInput().let {
+        measureSolution {
             part1(it).println()
             part2(it).println()
-        }.let {
-            println("Done in $it.")
         }
     }
 }
