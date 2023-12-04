@@ -21,12 +21,12 @@ fun main() {
 
     fun List<String>.mapInput() = map { Card.parse(it) }
 
-    readInput2(day, "sample").mapInput().let {
+    readInput(day, "sample").mapInput().let {
         checkSample(part1(it), 13)
         checkSample(part2(it), 30)
     }
 
-    readInput2(day, "input").mapInput().let {
+    readInput(day, "input").mapInput().let {
         measureSolution {
             part1(it).println()
             part2(it).println()

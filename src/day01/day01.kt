@@ -13,10 +13,10 @@ fun main() {
         a + findLineNumber(it)
     }
 
-    readInput2(day, "sample").let { checkSample(part1(it), 142) }
-    readInput2(day, "sample_p2").let { checkSample(part2(it), 281) }
+    readInput(day, "sample").let { checkSample(part1(it), 142) }
+    readInput(day, "sample_p2").let { checkSample(part2(it), 281) }
 
-    readInput2(day, "input").let {
+    readInput(day, "input").let {
         measureSolution {
             part1(it).println()
             part2(it).println()

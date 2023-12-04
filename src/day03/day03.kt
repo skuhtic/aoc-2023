@@ -20,12 +20,12 @@ fun main() {
         }
     }.values.filter { it.size == 2 }.sumOf { it.first() * it.last() }
 
-    readInput2(day, "sample").let { Board.parse(it) }.let {
+    readInput(day, "sample").let { Board.parse(it) }.let {
         checkSample(part1(it), 4361)
         checkSample(part2(it), 467835)
     }
 
-    readInput2(day, "input").let { Board.parse(it) }.let {
+    readInput(day, "input").let { Board.parse(it) }.let {
         measureSolution {
             part1(it).println()
             part2(it).println()

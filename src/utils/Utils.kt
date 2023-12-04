@@ -10,12 +10,6 @@ import kotlin.time.measureTime
  * Reads lines from the given input txt file.
  */
 fun readInput(day: String, name: String): List<String> {
-    val fileName = "d$day-$name.txt"
-    println("Reading input file: $fileName")
-    return Path("src/inputs/$fileName").readLines()
-}
-
-fun readInput2(day: String, name: String): List<String> {
     val fileName = "$name.txt"
     println("Reading input file: $fileName")
     return Path("src/day$day/$fileName").readLines()

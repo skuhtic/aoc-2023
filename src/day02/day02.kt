@@ -9,12 +9,12 @@ fun main() {
 
     fun part2(games: List<Game>): Int = games.map { it.possibleWith() }.sumOf { it.power() }
 
-    readInput2(day, "sample").map { Game.parse(it) }.let {
+    readInput(day, "sample").map { Game.parse(it) }.let {
         checkSample(part1(it), 8)
         checkSample(part2(it), 2286)
     }
 
-    readInput2(day, "input").map { Game.parse(it) }.let {
+    readInput(day, "input").map { Game.parse(it) }.let {
         measureSolution {
             part1(it).println()
             part2(it).println()
