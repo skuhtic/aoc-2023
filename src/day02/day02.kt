@@ -39,7 +39,7 @@ data class Draw(val red: Int, val green: Int, val blue: Int) {
 
     companion object {
         fun parseAll(input: String): List<Draw> = input.split("; ").map { parse(it) }
-        fun parse(input: String): Draw = input.split(", ").associate { sColor ->
+        private fun parse(input: String): Draw = input.split(", ").associate { sColor ->
             sColor.split(' ', limit = 2).let {
                 it.last() to it.first().toInt()
             }

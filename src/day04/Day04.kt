@@ -6,7 +6,7 @@ fun main() {
     val day = "04"
 
     fun part1(input: List<Card>): Int = input.sumOf {
-        it.wining.intersect(it.numbers).fold(0) { a, i ->
+        it.wining.intersect(it.numbers).fold(0) { a, _ ->
             if (a == 0) 1 else a * 2
         }.toInt()
     }
