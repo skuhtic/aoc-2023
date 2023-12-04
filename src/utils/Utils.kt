@@ -45,7 +45,7 @@ fun checkSample(result: Any, expected: Any) {
     println("Check ok: $result")
 }
 
-inline fun <reified T> T.logPrint() = this.also { println("\n$it\n") }
+inline fun <reified T> T.logPrint(text: String? = null) = this.also { println("\n${if(text!=null) "$text: " else ""}$it\n") }
 
 fun measureSolution(block: () -> Unit) {
     println("Starting solutions")
